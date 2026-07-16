@@ -1,201 +1,1206 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Urban Style - Tienda de Ropa</title>
-
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, Helvetica, sans-serif;
-}
-
-body{
-    background:#f4f4f4;
-}
-
-header{
-    background:#111;
-    color:white;
-    text-align:center;
-    padding:25px;
-}
-
-header h1{
-    font-size:40px;
-}
-
-nav{
-    background:#222;
-    padding:15px;
-    text-align:center;
-}
-
-nav a{
-    color:white;
-    text-decoration:none;
-    margin:20px;
-    font-weight:bold;
-}
-
-nav a:hover{
-    color:#FFD700;
-}
-
-.banner{
-    background:#555;
-    color:white;
-    text-align:center;
-    padding:60px;
-}
-
-.catalogo{
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:25px;
-    padding:40px;
-}
-
-.producto{
-    background:white;
-    width:260px;
-    border-radius:10px;
-    overflow:hidden;
-    box-shadow:0 5px 10px rgba(0,0,0,0.2);
-}
-
-.producto img{
-    width:100%;
-}
-
-.producto h3{
-    padding:10px;
-}
-
-.producto p{
-    padding:0 10px;
-}
-
-.precio{
-    color:green;
-    font-size:22px;
-    font-weight:bold;
-    margin-top:10px;
-}
-
-button{
-    width:90%;
-    margin:15px;
-    padding:10px;
-    background:#111;
-    color:white;
-    border:none;
-    border-radius:5px;
-    cursor:pointer;
-}
-
-button:hover{
-    background:#ff6600;
-}
-
-.perfil{
-    background:white;
-    width:80%;
-    margin:40px auto;
-    padding:25px;
-    border-radius:10px;
-    box-shadow:0 0 10px rgba(0,0,0,.2);
-}
-
-footer{
-    background:#111;
-    color:white;
-    text-align:center;
-    padding:20px;
-}
-</style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VÉRTICE Studio | Alta Costura & Sostenibilidad</title>
+    <!-- Tailwind CSS para el diseño responsivo -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts para tipografías elegantes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@200..800&display=swap" rel="stylesheet">
+    <!-- FontAwesome para iconos atractivos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            sand: '#F7F4EF',
+                            charcoal: '#121212',
+                            gold: '#D4AF37',
+                            muted: '#707070',
+                            cardBg: '#1C1C1C'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Estilos personalizados para animaciones y elementos premium */
+        .glassmorphism {
+            background: rgba(18, 18, 18, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .text-glow {
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
 </head>
-<body>
+<body class="bg-brand-charcoal text-brand-sand font-sans overflow-x-hidden">
 
-<header>
-<h1>URBAN STYLE</h1>
-<p>Moda para todos los estilos</p>
-</header>
+    <!-- NAVBAR -->
+    <nav class="fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-in-out py-6 px-6 lg:px-16 glassmorphism border-b border-white/5" id="navbar">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#" class="flex flex-col items-center">
+                <span class="font-serif text-2xl lg:text-3xl tracking-[0.25em] text-glow uppercase font-bold text-white">VÉRTICE</span>
+                <span class="text-[9px] tracking-[0.4em] uppercase text-brand-gold -mt-1">Studio</span>
+            </a>
 
-<nav>
-<a href="#">Inicio</a>
-<a href="#catalogo">Catálogo</a>
-<a href="#perfil">Cuenta Profesional</a>
-<a href="#">Contacto</a>
-</nav>
+            <!-- Navigation Links (Desktop) -->
+            <div class="hidden md:flex items-center space-x-10 text-sm tracking-widest uppercase">
+                <a href="#inicio" class="hover:text-brand-gold transition-colors duration-300">Inicio</a>
+                <a href="#historia" class="hover:text-brand-gold transition-colors duration-300">Historia</a>
+                <a href="#catalogo" class="hover:text-brand-gold transition-colors duration-300">Catálogo</a>
+                <a href="#lookbook" class="hover:text-brand-gold transition-colors duration-300">Lookbook</a>
+                <a href="#contacto" class="hover:text-brand-gold transition-colors duration-300">Contacto</a>
+            </div>
 
-<section class="banner">
-<h2>¡Nueva colección 2026!</h2>
-<p>Ropa moderna con la mejor calidad.</p>
-</section>
+            <!-- Action Controls -->
+            <div class="flex items-center space-x-6">
+                <!-- Search Trigger -->
+                <button onclick="toggleSearch()" class="hover:text-brand-gold transition-colors duration-300 focus:outline-none relative" aria-label="Buscar">
+                    <i class="fa-solid fa-magnifying-glass text-lg"></i>
+                </button>
+                <!-- Cart Trigger with Dynamic Badge -->
+                <button onclick="toggleCart()" class="hover:text-brand-gold transition-colors duration-300 focus:outline-none relative" aria-label="Carrito">
+                    <i class="fa-solid fa-bag-shopping text-lg"></i>
+                    <span id="cart-badge" class="absolute -top-2 -right-2 bg-brand-gold text-brand-charcoal font-bold text-xs w-5 h-5 rounded-full flex items-center justify-center opacity-0 transition-opacity duration-300">0</span>
+                </button>
+                <!-- Mobile Menu Button -->
+                <button onclick="toggleMobileMenu()" class="md:hidden text-white focus:outline-none" aria-label="Menu">
+                    <i id="menu-icon" class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
 
-<h2 style="text-align:center; margin-top:30px;" id="catalogo">Catálogo</h2>
+        <!-- Mobile Drawer Menu -->
+        <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-brand-charcoal/95 border-b border-white/5 backdrop-blur-lg flex flex-col p-6 space-y-4 text-center tracking-widest uppercase text-sm">
+            <a href="#inicio" onclick="toggleMobileMenu()" class="py-2 hover:text-brand-gold transition-colors">Inicio</a>
+            <a href="#historia" onclick="toggleMobileMenu()" class="py-2 hover:text-brand-gold transition-colors">Historia</a>
+            <a href="#catalogo" onclick="toggleMobileMenu()" class="py-2 hover:text-brand-gold transition-colors">Catálogo</a>
+            <a href="#lookbook" onclick="toggleMobileMenu()" class="py-2 hover:text-brand-gold transition-colors">Lookbook</a>
+            <a href="#contacto" onclick="toggleMobileMenu()" class="py-2 hover:text-brand-gold transition-colors">Contacto</a>
+        </div>
+    </nav>
 
-<section class="catalogo">
+    <!-- INTERACTIVE SEARCH PANEL -->
+    <div id="search-panel" class="fixed inset-y-0 right-0 w-full max-w-md bg-brand-charcoal/95 border-l border-white/10 z-50 translate-x-full transition-transform duration-500 ease-in-out p-8 backdrop-blur-xl flex flex-col justify-between">
+        <div>
+            <div class="flex justify-between items-center mb-8">
+                <h3 class="font-serif text-xl uppercase tracking-wider text-brand-gold">Búsqueda rápida</h3>
+                <button onclick="toggleSearch()" class="hover:text-red-400 text-brand-sand text-xl focus:outline-none">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div class="relative mb-6">
+                <input type="text" id="live-search-input" oninput="handleSearch(this.value)" placeholder="Buscar abrigo, pantalón, lino..." class="w-full bg-white/5 border border-white/20 rounded-full px-6 py-3 text-brand-sand focus:outline-none focus:border-brand-gold transition-colors placeholder:text-brand-muted">
+                <span class="absolute right-4 top-1/2 -translate-y-1/2 text-brand-muted"><i class="fa-solid fa-magnifying-glass"></i></span>
+            </div>
+            <!-- Quick links -->
+            <div>
+                <p class="text-xs uppercase tracking-widest text-brand-muted mb-3">Sugerencias:</p>
+                <div class="flex flex-wrap gap-2">
+                    <button onclick="fillSearch('Lino')" class="bg-white/5 hover:bg-brand-gold/20 hover:text-brand-gold border border-white/10 rounded-full px-4 py-1 text-xs transition-colors">Lino</button>
+                    <button onclick="fillSearch('Abrigo')" class="bg-white/5 hover:bg-brand-gold/20 hover:text-brand-gold border border-white/10 rounded-full px-4 py-1 text-xs transition-colors">Abrigo</button>
+                    <button onclick="fillSearch('Sastre')" class="bg-white/5 hover:bg-brand-gold/20 hover:text-brand-gold border border-white/10 rounded-full px-4 py-1 text-xs transition-colors">Sastre</button>
+                    <button onclick="fillSearch('Premium')" class="bg-white/5 hover:bg-brand-gold/20 hover:text-brand-gold border border-white/10 rounded-full px-4 py-1 text-xs transition-colors">Premium</button>
+                </div>
+            </div>
+        </div>
+        <div>
+            <p class="text-xs text-brand-muted leading-relaxed text-center">Filtra productos instantáneamente escribiendo arriba o deslizando al catálogo.</p>
+        </div>
+    </div>
 
-<div class="producto">
-<img src="https://via.placeholder.com/260x320" alt="Camiseta">
-<h3>Camiseta Oversize</h3>
-<p class="precio">$24.99</p>
-<button>Comprar</button>
-</div>
+    <!-- INTERACTIVE CART DRAWER -->
+    <div id="cart-panel" class="fixed inset-y-0 right-0 w-full max-w-md bg-brand-charcoal/95 border-l border-white/10 z-50 translate-x-full transition-transform duration-500 ease-in-out p-8 backdrop-blur-xl flex flex-col justify-between">
+        <div>
+            <div class="flex justify-between items-center mb-8 border-b border-white/10 pb-4">
+                <div class="flex items-center space-x-2">
+                    <h3 class="font-serif text-xl uppercase tracking-wider text-brand-gold">Tu Carrito</h3>
+                    <span id="cart-item-count" class="bg-brand-gold/20 text-brand-gold text-xs px-2.5 py-0.5 rounded-full font-bold">0</span>
+                </div>
+                <button onclick="toggleCart()" class="hover:text-red-400 text-brand-sand text-xl focus:outline-none">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            
+            <!-- Items Container -->
+            <div id="cart-items" class="space-y-4 max-h-[55vh] overflow-y-auto pr-2 hide-scrollbar">
+                <!-- Se poblará dinámicamente -->
+                <div id="empty-cart-msg" class="text-center py-12 text-brand-muted flex flex-col items-center justify-center space-y-4">
+                    <i class="fa-solid fa-bag-shopping text-4xl mb-2 opacity-30"></i>
+                    <p class="tracking-wide">Tu bolso de compras está vacío.</p>
+                    <button onclick="toggleCart(); window.location.hash='#catalogo'" class="bg-brand-gold text-brand-charcoal font-semibold text-xs tracking-widest uppercase px-6 py-2.5 rounded-full hover:bg-white transition-all">Explorar tienda</button>
+                </div>
+            </div>
+        </div>
 
-<div class="producto">
-<img src="https://via.placeholder.com/260x320" alt="Jeans">
-<h3>Jeans Slim Fit</h3>
-<p class="precio">$49.99</p>
-<button>Comprar</button>
-</div>
+        <!-- Checkout Section -->
+        <div id="cart-summary" class="border-t border-white/10 pt-6 mt-4">
+            <div class="flex justify-between items-center mb-4">
+                <span class="text-brand-muted tracking-wider text-sm uppercase">Envío</span>
+                <span class="text-brand-gold font-semibold tracking-wide text-xs">GRATIS EXPRESS</span>
+            </div>
+            <div class="flex justify-between items-center mb-6">
+                <span class="text-white tracking-widest text-md uppercase">Total Estimado</span>
+                <span id="cart-total" class="text-brand-gold font-semibold text-2xl tracking-wide">$0.00</span>
+            </div>
+            <button onclick="triggerCheckout()" class="w-full bg-brand-gold text-brand-charcoal font-bold tracking-widest uppercase py-4 rounded-full hover:bg-white transition-all shadow-lg shadow-brand-gold/10 hover:shadow-white/5 active:scale-95 duration-300">
+                Proceder al Pago
+            </button>
+            <p class="text-[10px] text-brand-muted text-center mt-3 tracking-widest uppercase">Pago 100% seguro con tarjeta o transferencia</p>
+        </div>
+    </div>
 
-<div class="producto">
-<img src="https://via.placeholder.com/260x320" alt="Chaqueta">
-<h3>Chaqueta Premium</h3>
-<p class="precio">$69.99</p>
-<button>Comprar</button>
-</div>
+    <!-- HERO SECTION -->
+    <section id="inicio" class="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
+        <!-- Background Image with Overlay -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=1920&auto=format&fit=crop" 
+                 class="w-full h-full object-cover object-center opacity-40 scale-105 transition-transform duration-10000 ease-out" 
+                 id="hero-img" 
+                 alt="Vértice Colección de Invierno"
+                 onerror="this.src='https://placehold.co/1920x1080/1a1a1a/f4f1ea?text=Vertice+Fashion+Hero'">
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-charcoal via-brand-charcoal/30 to-brand-charcoal/80"></div>
+        </div>
 
-<div class="producto">
-<img src="https://via.placeholder.com/260x320" alt="Sudadera">
-<h3>Sudadera Casual</h3>
-<p class="precio">$39.99</p>
-<button>Comprar</button>
-</div>
+        <div class="relative z-10 max-w-7xl mx-auto px-6 text-center lg:text-left w-full flex flex-col lg:flex-row items-center justify-between gap-12 pt-10">
+            <!-- Hero Text -->
+            <div class="max-w-xl lg:max-w-2xl flex flex-col space-y-6">
+                <div class="inline-flex items-center space-x-2 bg-brand-gold/15 border border-brand-gold/30 rounded-full py-1.5 px-4 self-center lg:self-start">
+                    <span class="w-2 h-2 rounded-full bg-brand-gold animate-ping"></span>
+                    <span class="text-xs tracking-widest uppercase text-brand-gold font-semibold">NUEVA COLECCIÓN ESTIVAL '26</span>
+                </div>
+                <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl leading-none font-extrabold tracking-tight text-white">
+                    Moda con <br>
+                    <span class="text-brand-gold italic font-normal text-glow">Propósito</span>
+                </h1>
+                <p class="text-brand-sand/80 text-sm md:text-md lg:text-lg max-w-md leading-relaxed tracking-wide">
+                    Prendas de alta costura diseñadas meticulosamente a mano, fusionando fibras orgánicas premium y minimalismo eterno.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center gap-4 pt-4 justify-center lg:justify-start">
+                    <a href="#catalogo" class="w-full sm:w-auto bg-brand-gold hover:bg-white text-brand-charcoal font-bold tracking-widest uppercase py-4 px-10 rounded-full transition-all duration-300 text-center shadow-xl shadow-brand-gold/10">
+                        Explorar Catálogo
+                    </a>
+                    <a href="#historia" class="w-full sm:w-auto border border-white/20 hover:border-brand-gold hover:text-brand-gold text-brand-sand font-bold tracking-widest uppercase py-4 px-10 rounded-full transition-all duration-300 text-center backdrop-blur-md">
+                        Nuestra Historia
+                    </a>
+                </div>
+            </div>
 
-</section>
+            <!-- Dynamic Interactive Showcase Card (Hero Side) -->
+            <div class="hidden lg:flex flex-col bg-white/5 border border-white/10 p-6 rounded-3xl backdrop-blur-lg w-full max-w-sm relative group overflow-hidden">
+                <div class="absolute top-4 left-4 bg-brand-gold text-brand-charcoal font-extrabold text-[10px] tracking-widest uppercase py-1 px-3 rounded-full">Destacado</div>
+                <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=800&auto=format&fit=crop" class="w-full h-80 object-cover rounded-2xl group-hover:scale-105 transition-transform duration-500" alt="Prenda de Lino">
+                <div class="mt-4 flex justify-between items-center">
+                    <div>
+                        <h4 class="font-serif text-white text-lg font-bold">Camisa Lino Sastre</h4>
+                        <p class="text-xs text-brand-muted tracking-wider uppercase">Fibras Orgánicas</p>
+                    </div>
+                    <div class="text-right">
+                        <span class="text-brand-gold font-bold text-xl">$125.00</span>
+                    </div>
+                </div>
+                <button onclick="addToCart(2, 'Camisa Lino Sastre', 125.00, 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=800&auto=format&fit=crop')" class="mt-4 w-full bg-white text-brand-charcoal font-bold text-xs tracking-widest uppercase py-3 rounded-xl hover:bg-brand-gold transition-colors duration-300">
+                    Añadir al Carrito
+                </button>
+            </div>
+        </div>
 
-<section class="perfil" id="perfil">
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center space-y-2 text-brand-muted hover:text-brand-gold transition-colors">
+            <span class="text-[10px] tracking-[0.3em] uppercase">Deslizar</span>
+            <div class="w-5 h-10 border-2 border-white/20 rounded-full flex justify-center p-1.5">
+                <div class="w-1.5 h-1.5 bg-brand-gold rounded-full animate-bounce"></div>
+            </div>
+        </div>
+    </section>
 
-<h2>Cuenta Profesional</h2>
+    <!-- STATS & VALUES SECTION -->
+    <section class="py-12 bg-black/40 border-y border-white/5">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div class="flex flex-col space-y-1">
+                <span class="font-serif text-3xl md:text-4xl text-brand-gold font-bold">100%</span>
+                <span class="text-xs tracking-widest uppercase text-brand-muted">Lino & Algodón Orgánico</span>
+            </div>
+            <div class="flex flex-col space-y-1">
+                <span class="font-serif text-3xl md:text-4xl text-brand-gold font-bold">Hecho</span>
+                <span class="text-xs tracking-widest uppercase text-brand-muted">A Mano en Uruguay</span>
+            </div>
+            <div class="flex flex-col space-y-1">
+                <span class="font-serif text-3xl md:text-4xl text-brand-gold font-bold">Embalaje</span>
+                <span class="text-xs tracking-widest uppercase text-brand-muted">Biodegradable</span>
+            </div>
+            <div class="flex flex-col space-y-1">
+                <span class="font-serif text-3xl md:text-4xl text-brand-gold font-bold">Estilo</span>
+                <span class="text-xs tracking-widest uppercase text-brand-muted">Atemporal Consciente</span>
+            </div>
+        </div>
+    </section>
 
-<p><strong>Nombre de la empresa:</strong> Urban Style Fashion</p>
+    <!-- THE STORY SECTION -->
+    <section id="historia" class="py-24 px-6 max-w-7xl mx-auto relative">
+        <div class="text-center mb-16">
+            <span class="text-xs tracking-[0.4em] uppercase text-brand-gold font-semibold">El Comienzo</span>
+            <h2 class="font-serif text-4xl md:text-5xl mt-2 text-white font-bold text-glow">Nuestra Historia</h2>
+            <div class="w-12 h-0.5 bg-brand-gold mx-auto mt-4"></div>
+        </div>
 
-<p><strong>Propietario:</strong> Juan Pérez</p>
+        <div class="grid lg:grid-cols-12 gap-12 items-center">
+            <!-- Left Side Interactive Photo Grid -->
+            <div class="lg:col-span-5 relative h-[500px]">
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <!-- Image 1 -->
+                    <div id="story-img-container" class="relative w-full h-full rounded-3xl overflow-hidden shadow-2xl border border-white/10 group">
+                        <img id="story-image" src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover object-center transition-all duration-700 brightness-75 group-hover:scale-105" alt="Taller de Costura Inicial">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-8">
+                            <div class="space-y-1">
+                                <span class="text-brand-gold text-xs tracking-widest uppercase font-semibold" id="story-image-tag">Fase 1: El Taller Artesanal</span>
+                                <p class="text-white text-sm" id="story-image-desc">Hilos, telas y un sueño de cambio sostenible en el centro de Colonia.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-<p><strong>Correo:</strong> ventas@urbanstyle.com</p>
+            <!-- Right Side Interactive History Slider/Timeline -->
+            <div class="lg:col-span-7 flex flex-col justify-center space-y-8">
+                <div>
+                    <h3 class="font-serif text-3xl text-white font-bold">Uniendo la aguja, el hilo y la naturaleza</h3>
+                    <p class="text-brand-muted text-sm mt-3 leading-relaxed tracking-wide">
+                        Vértice comenzó como una pequeña revolución contra la moda rápida (fast-fashion). Cada decisión que tomamos rinde homenaje a los artesanos locales, a la durabilidad de los materiales premium y al cuidado del planeta.
+                    </p>
+                </div>
 
-<p><strong>Teléfono:</strong> +1 555 123 4567</p>
+                <!-- Interactive Timeline Controls -->
+                <div class="flex border-b border-white/10 pb-4 justify-between md:justify-start md:space-x-8">
+                    <button onclick="changeStoryEra('origen')" id="btn-origen" class="timeline-btn text-brand-gold border-b-2 border-brand-gold pb-2 font-bold text-xs md:text-sm tracking-widest uppercase transition-all">2018: El Origen</button>
+                    <button onclick="changeStoryEra('expansion')" id="btn-expansion" class="timeline-btn text-brand-muted hover:text-white pb-2 font-bold text-xs md:text-sm tracking-widest uppercase transition-all">2021: Expansión</button>
+                    <button onclick="changeStoryEra('global')" id="btn-global" class="timeline-btn text-brand-muted hover:text-white pb-2 font-bold text-xs md:text-sm tracking-widest uppercase transition-all">2026: Sostenible</button>
+                </div>
 
-<p><strong>Dirección:</strong> Avenida Principal #123</p>
+                <!-- Era Content Container -->
+                <div id="story-era-content" class="space-y-4 min-h-[160px] transition-all duration-300">
+                    <h4 class="font-serif text-xl text-white font-semibold italic">"El Origen de Vértice en Colonia"</h4>
+                    <p class="text-brand-sand/80 text-sm leading-relaxed">
+                        En 2018, en un pequeño taller iluminado por el sol de Colonia del Sacramento, nuestra fundadora Clara comenzó a rescatar retazos de lino de fábricas locales en desuso. Diseñó las primeras 10 camisas masculinas, las cuales se vendieron en menos de dos días. Esa chispa impulsó el valor fundamental de Vértice: exclusividad con conciencia ecológica.
+                    </p>
+                </div>
 
-<p><strong>Horario:</strong> Lunes a Sábado de 9:00 a 20:00</p>
+                <!-- Quotes Slider / Interactive Feature -->
+                <div class="p-6 bg-white/5 border border-white/5 rounded-2xl relative">
+                    <span class="absolute top-2 right-4 text-brand-gold/20 font-serif text-7xl select-none">“</span>
+                    <p class="italic text-brand-sand/90 text-xs md:text-sm leading-relaxed">
+                        "No diseñamos prendas para que duren una temporada, diseñamos legados textiles para toda una vida."
+                    </p>
+                    <div class="mt-3 flex items-center space-x-3">
+                        <div class="w-8 h-8 rounded-full overflow-hidden bg-brand-gold/20">
+                            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=150&auto=format&fit=crop" class="w-full h-full object-cover" alt="Clara">
+                        </div>
+                        <div>
+                            <p class="text-xs font-bold text-white uppercase tracking-wider">Clara Varela</p>
+                            <p class="text-[10px] text-brand-muted uppercase tracking-widest">Fundadora & Directora Creativa</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<p><strong>Descripción:</strong> Somos una tienda especializada en ropa moderna para hombres y mujeres, ofreciendo productos de alta calidad y las últimas tendencias de la moda.</p>
+    <!-- INTERACTIVE CATALOGUE SECTION -->
+    <section id="catalogo" class="py-24 bg-black/25 border-y border-white/5">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-xs tracking-[0.4em] uppercase text-brand-gold font-semibold">Prendas Eternas</span>
+                <h2 class="font-serif text-4xl md:text-5xl mt-2 text-white font-bold text-glow">Nuestro Catálogo</h2>
+                <div class="w-12 h-0.5 bg-brand-gold mx-auto mt-4"></div>
+            </div>
 
-</section>
+            <!-- Interactive Filters Grid and Search -->
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6 mb-12 border-b border-white/5 pb-8">
+                <!-- Tabs -->
+                <div class="flex flex-wrap items-center justify-center gap-2 md:gap-4 overflow-x-auto w-full md:w-auto pb-4 md:pb-0">
+                    <button onclick="filterCategory('all')" id="btn-cat-all" class="cat-tab bg-brand-gold text-brand-charcoal font-semibold text-xs tracking-widest uppercase py-2.5 px-6 rounded-full transition-all">Todos</button>
+                    <button onclick="filterCategory('lino')" id="btn-cat-lino" class="cat-tab bg-white/5 hover:bg-white/10 text-brand-sand font-semibold text-xs tracking-widest uppercase py-2.5 px-6 rounded-full transition-all">Linos Sutiles</button>
+                    <button onclick="filterCategory('abrigos')" id="btn-cat-abrigos" class="cat-tab bg-white/5 hover:bg-white/10 text-brand-sand font-semibold text-xs tracking-widest uppercase py-2.5 px-6 rounded-full transition-all">Abrigos Lana</button>
+                    <button onclick="filterCategory('premium')" id="btn-cat-premium" class="cat-tab bg-white/5 hover:bg-white/10 text-brand-sand font-semibold text-xs tracking-widest uppercase py-2.5 px-6 rounded-full transition-all">Colección Premium</button>
+                </div>
 
-<footer>
-<p>© 2026 Urban Style Fashion | Todos los derechos reservados.</p>
-</footer>
+                <!-- Custom Grid/List Selector + Live Counters -->
+                <div class="flex items-center space-x-4 w-full md:w-auto justify-end">
+                    <span id="results-count" class="text-xs text-brand-muted uppercase tracking-widest">Mostrando 6 productos</span>
+                </div>
+            </div>
 
+            <!-- Products Dynamic Grid -->
+            <div id="product-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- El catálogo de productos se genera dinámicamente mediante JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- LOOKBOOK & INTERACTIVE VIDEO SECTION -->
+    <section id="lookbook" class="py-24 px-6 max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <span class="text-xs tracking-[0.4em] uppercase text-brand-gold font-semibold">El Movimiento</span>
+            <h2 class="font-serif text-4xl md:text-5xl mt-2 text-white font-bold text-glow">Campaña Audiovisual '26</h2>
+            <div class="w-12 h-0.5 bg-brand-gold mx-auto mt-4"></div>
+        </div>
+
+        <div class="grid lg:grid-cols-12 gap-8 items-stretch">
+            <!-- Video Column -->
+            <div class="lg:col-span-7 flex flex-col justify-between space-y-6">
+                <!-- Video Container -->
+                <div class="relative rounded-3xl overflow-hidden shadow-2xl border border-white/10 h-96 lg:h-full min-h-[400px]">
+                    <video id="campaign-video" class="w-full h-full object-cover" loop playsinline muted poster="https://images.unsplash.com/photo-1511556532299-8f662fc26c06?q=80&w=1200&auto=format&fit=crop">
+                        <source src="https://player.vimeo.com/external/371433846.sd.mp4?s=231da65c69785002ba1419747970d24c0ef825f3&profile_id=139&oauth2_token_id=57447761" type="video/mp4">
+                        Tu navegador no soporta reproducción de videos interactivos.
+                    </video>
+                    <!-- Custom Video Controls Overlay -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20 flex flex-col justify-between p-6">
+                        <div class="flex justify-between items-center">
+                            <span class="bg-brand-gold/25 text-brand-gold border border-brand-gold/30 text-[10px] tracking-widest uppercase py-1 px-3.5 rounded-full font-bold">Campaña: Estival</span>
+                            <span class="text-xs text-white/70 font-mono" id="video-time">0:00 / 0:15</span>
+                        </div>
+                        
+                        <!-- Center Play Button Trigger -->
+                        <div class="flex justify-center items-center">
+                            <button onclick="toggleVideoPlayback()" id="video-center-btn" class="w-20 h-20 bg-brand-gold text-brand-charcoal hover:bg-white rounded-full flex items-center justify-center text-2xl shadow-xl transition-all duration-300 hover:scale-110 active:scale-95 focus:outline-none">
+                                <i id="play-center-icon" class="fa-solid fa-play ml-1"></i>
+                            </button>
+                        </div>
+
+                        <!-- Video Controls Bar -->
+                        <div class="flex items-center justify-between space-x-4">
+                            <button onclick="toggleVideoPlayback()" class="text-brand-gold hover:text-white transition-colors text-lg focus:outline-none">
+                                <i id="play-bar-icon" class="fa-solid fa-play"></i>
+                            </button>
+                            <!-- Progress Bar -->
+                            <div class="flex-1 bg-white/20 rounded-full h-1 cursor-pointer" onclick="seekVideo(event)">
+                                <div id="video-progress" class="bg-brand-gold h-full w-0 rounded-full relative transition-all duration-100"></div>
+                            </div>
+                            <!-- Mute Control -->
+                            <button onclick="toggleVideoVolume()" class="text-brand-gold hover:text-white transition-colors text-lg focus:outline-none">
+                                <i id="volume-icon" class="fa-solid fa-volume-xmark"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Photo Lookbook Masonry Cards Column -->
+            <div class="lg:col-span-5 grid grid-cols-2 gap-4">
+                <div class="relative rounded-2xl overflow-hidden group h-64 border border-white/5">
+                    <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Lookbook 1">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <span class="text-white text-xs tracking-wider uppercase">Fibras Livianas</span>
+                    </div>
+                </div>
+                <div class="relative rounded-2xl overflow-hidden group h-64 border border-white/5">
+                    <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Lookbook 2">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <span class="text-white text-xs tracking-wider uppercase">Colección Otoñal</span>
+                    </div>
+                </div>
+                <div class="relative rounded-2xl overflow-hidden group h-64 border border-white/5 col-span-2">
+                    <img src="https://images.unsplash.com/photo-1485968579580-b6d095142e6e?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Lookbook 3">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <span class="text-white text-xs tracking-wider uppercase">Sostenibilidad Sencilla</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT & CONNECT SECTION -->
+    <section id="contacto" class="py-24 bg-black/40 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-start">
+            <!-- Left Info column -->
+            <div class="space-y-8">
+                <div>
+                    <span class="text-xs tracking-[0.4em] uppercase text-brand-gold font-semibold">Ubicaciones & Redes</span>
+                    <h2 class="font-serif text-4xl md:text-5xl mt-2 text-white font-bold text-glow">Conecta con Nosotros</h2>
+                    <div class="w-12 h-0.5 bg-brand-gold mt-4"></div>
+                </div>
+                <p class="text-brand-muted text-sm leading-relaxed max-w-md">
+                    Visita nuestro showroom en Montevideo o agenda una cita personalizada con nuestro equipo de estilistas en Colonia.
+                </p>
+
+                <!-- Location items -->
+                <div class="space-y-6">
+                    <div class="flex items-start space-x-4">
+                        <div class="w-10 h-10 rounded-full bg-brand-gold/10 border border-brand-gold/20 flex items-center justify-center text-brand-gold shrink-0">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm tracking-wider uppercase text-white">Showroom Principal</h4>
+                            <p class="text-xs text-brand-muted mt-1 leading-relaxed">Calle de las Flores 210, Barrio Histórico,<br>Colonia del Sacramento, Uruguay</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start space-x-4">
+                        <div class="w-10 h-10 rounded-full bg-brand-gold/10 border border-brand-gold/20 flex items-center justify-center text-brand-gold shrink-0">
+                            <i class="fa-solid fa-phone"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm tracking-wider uppercase text-white">Atención Personalizada</h4>
+                            <p class="text-xs text-brand-muted mt-1">+598 99 123 456</p>
+                            <p class="text-[10px] text-brand-gold tracking-widest uppercase">Lunes a Sábado de 10:00 a 19:00</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start space-x-4">
+                        <div class="w-10 h-10 rounded-full bg-brand-gold/10 border border-brand-gold/20 flex items-center justify-center text-brand-gold shrink-0">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm tracking-wider uppercase text-white">Soporte Digital</h4>
+                            <p class="text-xs text-brand-muted mt-1">contacto@verticestudio.com</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Social Links -->
+                <div class="pt-6">
+                    <h5 class="text-xs uppercase tracking-widest text-brand-gold font-bold mb-4">Siguenos en Redes</h5>
+                    <div class="flex space-x-4">
+                        <a href="https://instagram.com" target="_blank" rel="noopener" class="w-12 h-12 rounded-full border border-white/10 hover:border-brand-gold hover:text-brand-gold flex items-center justify-center transition-all bg-white/5 text-lg">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="https://facebook.com" target="_blank" rel="noopener" class="w-12 h-12 rounded-full border border-white/10 hover:border-brand-gold hover:text-brand-gold flex items-center justify-center transition-all bg-white/5 text-lg">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                        <a href="https://pinterest.com" target="_blank" rel="noopener" class="w-12 h-12 rounded-full border border-white/10 hover:border-brand-gold hover:text-brand-gold flex items-center justify-center transition-all bg-white/5 text-lg">
+                            <i class="fa-brands fa-pinterest-p"></i>
+                        </a>
+                        <a href="https://tiktok.com" target="_blank" rel="noopener" class="w-12 h-12 rounded-full border border-white/10 hover:border-brand-gold hover:text-brand-gold flex items-center justify-center transition-all bg-white/5 text-lg">
+                            <i class="fa-brands fa-tiktok"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Interactive Form column -->
+            <div class="bg-white/5 border border-white/10 p-8 rounded-3xl backdrop-blur-md relative overflow-hidden">
+                <div class="absolute -top-16 -right-16 w-36 h-36 bg-brand-gold/5 rounded-full blur-2xl"></div>
+                
+                <h3 class="font-serif text-2xl text-white font-bold mb-6">Envíanos un mensaje</h3>
+                <form id="contact-form" onsubmit="submitForm(event)" class="space-y-6">
+                    <div class="grid sm:grid-cols-2 gap-6">
+                        <div class="space-y-2">
+                            <label class="text-[10px] uppercase tracking-widest text-brand-muted block font-semibold">Nombre Completo</label>
+                            <input type="text" id="form-name" required class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3.5 text-brand-sand text-sm focus:outline-none focus:border-brand-gold transition-colors" placeholder="Ej. Camila Silva">
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-[10px] uppercase tracking-widest text-brand-muted block font-semibold">Correo Electrónico</label>
+                            <input type="email" id="form-email" required class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3.5 text-brand-sand text-sm focus:outline-none focus:border-brand-gold transition-colors" placeholder="correo@ejemplo.com">
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="text-[10px] uppercase tracking-widest text-brand-muted block font-semibold">Asunto de interés</label>
+                        <select id="form-subject" class="w-full bg-brand-charcoal border border-white/10 rounded-xl px-4 py-3.5 text-brand-sand text-sm focus:outline-none focus:border-brand-gold transition-colors">
+                            <option value="consulta">Consulta General</option>
+                            <option value="compras">Sobre mi pedido / Compra</option>
+                            <option value="estilismo">Reserva de Estilismo Presencial</option>
+                            <option value="colaboracion">Prensa / Colaboración</option>
+                        </select>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="text-[10px] uppercase tracking-widest text-brand-muted block font-semibold">Mensaje</label>
+                        <textarea id="form-message" required rows="4" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3.5 text-brand-sand text-sm focus:outline-none focus:border-brand-gold transition-colors placeholder:text-brand-muted/70" placeholder="Escribe tu mensaje aquí de forma detallada..."></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full bg-brand-gold text-brand-charcoal font-bold tracking-widest uppercase py-4 rounded-xl hover:bg-white transition-all duration-300">
+                        Enviar Consulta
+                    </button>
+                </form>
+
+                <!-- Custom Toast feedback message inside the form container -->
+                <div id="form-toast" class="hidden mt-4 p-4 bg-brand-gold/15 border border-brand-gold/30 rounded-xl flex items-center space-x-3 text-brand-gold animate-pulse">
+                    <i class="fa-solid fa-circle-check text-lg"></i>
+                    <p class="text-xs font-semibold leading-relaxed">¡Gracias! Tu mensaje ha sido recibido con éxito. Nos pondremos en contacto en un plazo de 12 horas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- QUICK VIEW MODAL (INTEGRATED) -->
+    <div id="quickview-modal" class="hidden fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
+        <div class="relative bg-brand-charcoal border border-white/15 rounded-3xl w-full max-w-4xl max-h-[90vh] overflow-y-auto hide-scrollbar flex flex-col md:flex-row shadow-2xl p-6 md:p-8 gap-8 animate-fade-in">
+            <!-- Close trigger -->
+            <button onclick="closeQuickView()" class="absolute top-4 right-4 text-brand-sand hover:text-brand-gold text-2xl focus:outline-none z-10">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <!-- Image Column -->
+            <div class="w-full md:w-1/2 h-80 md:h-[450px] rounded-2xl overflow-hidden relative">
+                <img id="modal-img" src="" class="w-full h-full object-cover" alt="Detalle Producto">
+                <div class="absolute bottom-4 left-4 bg-brand-charcoal/80 backdrop-blur-sm border border-white/10 rounded-full px-4 py-1.5 text-xs text-brand-gold font-bold">Últimas Unidades</div>
+            </div>
+
+            <!-- Content Column -->
+            <div class="w-full md:w-1/2 flex flex-col justify-between">
+                <div>
+                    <span id="modal-category" class="text-xs uppercase tracking-[0.2em] text-brand-gold font-semibold">Categoría</span>
+                    <h3 id="modal-title" class="font-serif text-3xl text-white font-bold mt-1">Nombre Producto</h3>
+                    
+                    <!-- Ratings -->
+                    <div class="flex items-center space-x-2 mt-2">
+                        <div class="text-brand-gold text-xs">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star-half-stroke"></i>
+                        </div>
+                        <span class="text-xs text-brand-muted tracking-widest uppercase font-semibold">(4.9 Valoración)</span>
+                    </div>
+
+                    <div class="mt-4">
+                        <span id="modal-price" class="text-3xl text-white font-serif font-bold">$0.00</span>
+                    </div>
+
+                    <p class="text-brand-muted text-xs md:text-sm leading-relaxed mt-4">
+                        Tejido confeccionado éticamente con algodón orgánico de primera calidad. Cuenta con costuras reforzadas de diseño minimalista, ideal tanto para ocasiones formales como de ocio sofisticado.
+                    </p>
+
+                    <!-- Sizes Selector (Interactive) -->
+                    <div class="mt-6">
+                        <span class="text-xs uppercase tracking-widest text-brand-muted block font-semibold mb-2">Seleccionar Talle</span>
+                        <div class="flex space-x-3">
+                            <button onclick="selectSize(this)" class="size-btn border border-brand-gold text-brand-gold font-semibold text-xs px-4 py-2.5 rounded-lg transition-colors">S</button>
+                            <button onclick="selectSize(this)" class="size-btn border border-white/10 hover:border-white text-brand-sand font-semibold text-xs px-4 py-2.5 rounded-lg transition-colors">M</button>
+                            <button onclick="selectSize(this)" class="size-btn border border-white/10 hover:border-white text-brand-sand font-semibold text-xs px-4 py-2.5 rounded-lg transition-colors">L</button>
+                            <button onclick="selectSize(this)" class="size-btn border border-white/10 hover:border-white text-brand-sand font-semibold text-xs px-4 py-2.5 rounded-lg transition-colors">XL</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-8 space-y-3">
+                    <button id="modal-add-btn" onclick="" class="w-full bg-brand-gold text-brand-charcoal font-bold tracking-widest uppercase py-4 rounded-xl hover:bg-white transition-all active:scale-95 duration-200">
+                        Añadir al Bolso
+                    </button>
+                    <p class="text-[10px] text-brand-muted text-center tracking-widest uppercase"><i class="fa-solid fa-truck-fast mr-1"></i> Envío gratis express e importación directa incluida</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-brand-charcoal text-brand-sand border-t border-white/5 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+            <!-- Brand Column -->
+            <div class="space-y-4">
+                <a href="#" class="flex flex-col items-start">
+                    <span class="font-serif text-2xl tracking-[0.25em] text-glow uppercase font-bold text-white">VÉRTICE</span>
+                    <span class="text-[9px] tracking-[0.4em] uppercase text-brand-gold -mt-1">Studio</span>
+                </a>
+                <p class="text-xs text-brand-muted leading-relaxed tracking-wide">
+                    Moda Premium, sostenible y de alta durabilidad. Comprometidos con el desarrollo textil consciente en el Cono Sur desde 2018.
+                </p>
+            </div>
+
+            <!-- Links Column -->
+            <div class="space-y-4">
+                <h4 class="font-serif text-lg text-white font-bold">Navegación</h4>
+                <div class="flex flex-col space-y-2 text-xs text-brand-muted tracking-wider uppercase">
+                    <a href="#inicio" class="hover:text-brand-gold transition-colors">Colecciones</a>
+                    <a href="#historia" class="hover:text-brand-gold transition-colors">Nosotros & Filosofía</a>
+                    <a href="#catalogo" class="hover:text-brand-gold transition-colors">Fibras Naturales</a>
+                    <a href="#lookbook" class="hover:text-brand-gold transition-colors">Prensa & Lookbook</a>
+                </div>
+            </div>
+
+            <!-- Legals Column -->
+            <div class="space-y-4">
+                <h4 class="font-serif text-lg text-white font-bold">Asistencia</h4>
+                <div class="flex flex-col space-y-2 text-xs text-brand-muted tracking-wider uppercase">
+                    <a href="#contacto" class="hover:text-brand-gold transition-colors">Términos de servicio</a>
+                    <a href="#contacto" class="hover:text-brand-gold transition-colors">Políticas de envío gratis</a>
+                    <a href="#contacto" class="hover:text-brand-gold transition-colors">Garantía de Sostenibilidad</a>
+                </div>
+            </div>
+
+            <!-- Newsletter Column -->
+            <div class="space-y-4">
+                <h4 class="font-serif text-lg text-white font-bold">Newsletter</h4>
+                <p class="text-xs text-brand-muted leading-relaxed">Entérate de lanzamientos exclusivos y ofertas especiales.</p>
+                <form onsubmit="handleSubscribe(event)" class="space-y-2">
+                    <div class="relative">
+                        <input type="email" id="news-email" required placeholder="Tu correo electrónico" class="w-full bg-white/5 border border-white/10 rounded-full px-4 py-2.5 text-xs text-white focus:outline-none focus:border-brand-gold transition-colors">
+                        <button type="submit" class="absolute right-2 top-1/2 -translate-y-1/2 text-brand-gold hover:text-white transition-colors text-sm px-2">
+                            <i class="fa-solid fa-paper-plane"></i>
+                        </button>
+                    </div>
+                    <p id="news-success" class="hidden text-[10px] text-brand-gold tracking-widest uppercase">¡Suscrito con éxito a preventas!</p>
+                </form>
+            </div>
+        </div>
+
+        <!-- Lower Footer Bar -->
+        <div class="max-w-7xl mx-auto px-6 pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+            <p class="text-[10px] text-brand-muted uppercase tracking-widest">&copy; 2026 VÉRTICE Studio Uruguay. Todos los derechos reservados.</p>
+            <div class="flex space-x-6 text-[10px] text-brand-muted uppercase tracking-widest">
+                <a href="#" class="hover:text-brand-gold">Privacidad</a>
+                <span>&middot;</span>
+                <a href="#" class="hover:text-brand-gold">Términos</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE JAVASCRIPT LOGIC -->
+    <script>
+        // DATA MODEL FOR PRODUCTS
+        const products = [
+            {
+                id: 1,
+                name: "Abrigo Minimalista Lana",
+                category: "abrigos",
+                price: 189.00,
+                rating: 4.9,
+                image: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=600&auto=format&fit=crop",
+                tag: "Bestseller"
+            },
+            {
+                id: 2,
+                name: "Camisa Lino Sastre",
+                category: "lino",
+                price: 125.00,
+                rating: 4.8,
+                image: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=600&auto=format&fit=crop",
+                tag: "Fibras Orgánicas"
+            },
+            {
+                id: 3,
+                name: "Vestido Fluyente Aura",
+                category: "premium",
+                price: 145.00,
+                rating: 5.0,
+                image: "https://images.unsplash.com/photo-1496747611176-843222e1e57c?q=80&w=600&auto=format&fit=crop",
+                tag: "Nuevo"
+            },
+            {
+                id: 4,
+                name: "Pantalón Sastre Arena",
+                category: "premium",
+                price: 115.00,
+                rating: 4.7,
+                image: "https://images.unsplash.com/photo-1509551388413-e18d0ac5d495?q=80&w=600&auto=format&fit=crop",
+                tag: "Sastrería"
+            },
+            {
+                id: 5,
+                name: "Suéter Cable Knit",
+                category: "abrigos",
+                price: 130.00,
+                rating: 4.9,
+                image: "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=600&auto=format&fit=crop",
+                tag: "Colección Premium"
+            },
+            {
+                id: 6,
+                name: "Gabardina Clásica Beige",
+                category: "abrigos",
+                price: 240.00,
+                rating: 5.0,
+                image: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?q=80&w=600&auto=format&fit=crop",
+                tag: "Edición Limitada"
+            }
+        ];
+
+        // STORY ERA DATA (INTERACTIVE TIMELINE)
+        const storyEras = {
+            origen: {
+                title: '"El Origen de Vértice en Colonia"',
+                desc: 'En 2018, en un pequeño taller iluminado por el sol de Colonia del Sacramento, nuestra fundadora Clara comenzó a rescatar retazos de lino de fábricas locales en desuso. Diseñó las primeras 10 camisas masculinas, las cuales se vendieron en menos de dos días. Esa chispa impulsó el valor fundamental de Vértice: exclusividad con conciencia ecológica.',
+                image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=800&auto=format&fit=crop',
+                tag: 'Fase 1: El Taller Artesanal',
+                imagedesc: 'Hilos, telas y un sueño de cambio sostenible en el centro de Colonia.'
+            },
+            expansion: {
+                title: '"Llevando el diseño a todo Uruguay"',
+                desc: 'Para 2021, la creciente demanda nos permitió establecer nuestro primer showroom principal. Generamos alianzas con familias de artesanos locales, garantizando salarios justos y preservando técnicas de costura que se estaban perdiendo. Nuestras colecciones pasaron de ser exclusivas de camisas a incluir abrigos de lana tejida y vestidos lánguidos.',
+                image: 'https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?q=80&w=800&auto=format&fit=crop',
+                tag: 'Fase 2: Expansión de Comunidades',
+                imagedesc: 'Tejiendo nexos éticos junto a talentos creativos locales.'
+            },
+            global: {
+                title: '"Exportación Sostenible y Premios de Moda"',
+                desc: 'Hoy, en 2026, Vértice no es solo una marca; es una declaración de intenciones. Fuimos galardonados con premios de sostenibilidad en Sudamérica por usar empaques compostables y mantener una huella de carbono neutral. Desde Colonia enviamos prendas atemporales a hogares de todo el mundo que aprecian el verdadero lujo.',
+                image: 'https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=800&auto=format&fit=crop',
+                tag: 'Fase 3: Impacto Global',
+                imagedesc: 'El diseño uruguayo cruzando fronteras éticamente.'
+            }
+        };
+
+        // GLOBAL SHOPPING CART STATE
+        let cart = [];
+
+        // INITIALIZATION
+        window.onload = function() {
+            renderCatalogue(products);
+            setupScrollListener();
+        };
+
+        // SCROLL NAVBAR TRANSITION
+        function setupScrollListener() {
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('py-4', 'shadow-2xl');
+                    navbar.classList.remove('py-6');
+                } else {
+                    navbar.classList.add('py-6');
+                    navbar.classList.remove('py-4', 'shadow-2xl');
+                }
+            });
+        }
+
+        // MOBILE DRAWER MENU TOGGLE
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('menu-icon');
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+                icon.className = "fa-solid fa-xmark text-xl";
+            } else {
+                menu.classList.add('hidden');
+                icon.className = "fa-solid fa-bars text-xl";
+            }
+        }
+
+        // DYNAMIC RENDERING OF CATALOGUE
+        function renderCatalogue(items) {
+            const grid = document.getElementById('product-grid');
+            const counter = document.getElementById('results-count');
+            grid.innerHTML = '';
+            
+            if (items.length === 0) {
+                grid.innerHTML = `
+                    <div class="col-span-full text-center py-24 text-brand-muted">
+                        <i class="fa-solid fa-ban text-4xl mb-3 opacity-30"></i>
+                        <p class="tracking-wide">No encontramos prendas que coincidan con tu búsqueda.</p>
+                        <button onclick="filterCategory('all')" class="mt-4 bg-brand-gold text-brand-charcoal px-6 py-2 rounded-full font-bold uppercase text-xs tracking-widest">Ver todo</button>
+                    </div>
+                `;
+                counter.innerText = "Mostrando 0 productos";
+                return;
+            }
+
+            counter.innerText = `Mostrando ${items.length} ${items.length === 1 ? 'producto' : 'productos'}`;
+
+            items.forEach(product => {
+                const card = document.createElement('div');
+                card.className = "bg-brand-cardBg/35 border border-white/5 rounded-3xl p-5 relative group overflow-hidden hover:border-brand-gold/30 transition-all duration-300";
+                card.innerHTML = `
+                    <!-- Tag Badge -->
+                    <span class="absolute top-8 left-8 z-10 bg-brand-charcoal/80 border border-white/10 text-brand-gold font-bold text-[9px] tracking-widest uppercase py-1 px-3.5 rounded-full backdrop-blur-sm shadow-md">${product.tag}</span>
+                    
+                    <!-- Thumbnail container with zoom effect -->
+                    <div class="h-96 rounded-2xl overflow-hidden relative mb-5 bg-neutral-900">
+                        <img src="${product.image}" class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105" alt="${product.name}" onerror="this.src='https://placehold.co/600x800/1a1a1a/f4f1ea?text=${product.name}'">
+                        
+                        <!-- Hover Quick Action Triggers -->
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center space-x-3">
+                            <button onclick="openQuickView(${product.id})" class="w-12 h-12 rounded-full bg-white text-brand-charcoal flex items-center justify-center shadow-lg hover:bg-brand-gold transition-colors duration-200" title="Vista Rápida">
+                                <i class="fa-solid fa-eye text-sm"></i>
+                            </button>
+                            <button onclick="addToCart(${product.id}, '${product.name}', ${product.price}, '${product.image}')" class="w-12 h-12 rounded-full bg-brand-gold text-brand-charcoal flex items-center justify-center shadow-lg hover:bg-white transition-colors duration-200" title="Añadir">
+                                <i class="fa-solid fa-cart-plus text-sm"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Details -->
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <span class="text-[10px] uppercase tracking-widest text-brand-muted font-bold">${product.category}</span>
+                            <h3 class="font-serif text-lg text-white font-bold group-hover:text-brand-gold transition-colors duration-300 mt-1">${product.name}</h3>
+                        </div>
+                        <div class="text-right">
+                            <span class="text-brand-gold font-serif font-bold text-xl">$${product.price.toFixed(2)}</span>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // CATEGORY TABS FILTERING
+        function filterCategory(category) {
+            // Update Active Tab styles
+            const tabs = document.querySelectorAll('.cat-tab');
+            tabs.forEach(tab => {
+                tab.className = "cat-tab bg-white/5 hover:bg-white/10 text-brand-sand font-semibold text-xs tracking-widest uppercase py-2.5 px-6 rounded-full transition-all";
+            });
+
+            const activeBtn = document.getElementById(`btn-cat-${category}`);
+            if (activeBtn) {
+                activeBtn.className = "cat-tab bg-brand-gold text-brand-charcoal font-semibold text-xs tracking-widest uppercase py-2.5 px-6 rounded-full transition-all";
+            }
+
+            // Perform Filter Logic
+            if (category === 'all') {
+                renderCatalogue(products);
+            } else {
+                const filtered = products.filter(p => p.category === category);
+                renderCatalogue(filtered);
+            }
+        }
+
+        // LIVE INTERACTIVE SEARCH
+        function handleSearch(query) {
+            const normalized = query.toLowerCase().trim();
+            const filtered = products.filter(p => 
+                p.name.toLowerCase().includes(normalized) || 
+                p.category.toLowerCase().includes(normalized)
+            );
+            renderCatalogue(filtered);
+            
+            // Scroll to catalog section for visibility if search matches
+            if(window.location.hash !== '#catalogo') {
+                window.location.hash = '#catalogo';
+            }
+        }
+
+        function fillSearch(term) {
+            const input = document.getElementById('live-search-input');
+            input.value = term;
+            handleSearch(term);
+        }
+
+        // DRAWER CONTROLS
+        function toggleSearch() {
+            const searchPanel = document.getElementById('search-panel');
+            searchPanel.classList.toggle('translate-x-full');
+            // Close other drawers
+            document.getElementById('cart-panel').classList.add('translate-x-full');
+        }
+
+        function toggleCart() {
+            const cartPanel = document.getElementById('cart-panel');
+            cartPanel.classList.toggle('translate-x-full');
+            // Close other drawers
+            document.getElementById('search-panel').classList.add('translate-x-full');
+        }
+
+        // SHOPPING CART CONTROLLER
+        function addToCart(id, name, price, image) {
+            const existingItem = cart.find(item => item.id === id);
+            if (existingItem) {
+                existingItem.qty += 1;
+            } else {
+                cart.push({ id, name, price, image, qty: 1 });
+            }
+            updateCartUI();
+            
+            // Show feedback using temporary gold color flash or mini animation in Badge
+            const badge = document.getElementById('cart-badge');
+            badge.classList.remove('opacity-0');
+            badge.classList.add('opacity-100', 'scale-110');
+            setTimeout(() => badge.classList.remove('scale-110'), 200);
+
+            // Open the shopping cart drawer for perfect feedback
+            toggleCart();
+        }
+
+        function updateCartQuantity(id, change) {
+            const item = cart.find(i => i.id === id);
+            if (item) {
+                item.qty += change;
+                if (item.qty <= 0) {
+                    cart = cart.filter(i => i.id !== id);
+                }
+            }
+            updateCartUI();
+        }
+
+        function removeCartItem(id) {
+            cart = cart.filter(i => i.id !== id);
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const cartItemsContainer = document.getElementById('cart-items');
+            const cartTotalEl = document.getElementById('cart-total');
+            const cartBadge = document.getElementById('cart-badge');
+            const cartItemCount = document.getElementById('cart-item-count');
+            const emptyMsg = document.getElementById('empty-cart-msg');
+            const cartSummary = document.getElementById('cart-summary');
+
+            // Clear previous items
+            const itemElements = cartItemsContainer.querySelectorAll('.cart-element');
+            itemElements.forEach(el => el.remove());
+
+            let totalQty = 0;
+            let subtotal = 0;
+
+            if (cart.length === 0) {
+                emptyMsg.classList.remove('hidden');
+                cartSummary.classList.add('opacity-50', 'pointer-events-none');
+                cartBadge.classList.add('opacity-0');
+                cartBadge.classList.remove('opacity-100');
+                cartItemCount.innerText = "0";
+                cartTotalEl.innerText = "$0.00";
+                return;
+            }
+
+            emptyMsg.classList.add('hidden');
+            cartSummary.classList.remove('opacity-50', 'pointer-events-none');
+
+            cart.forEach(item => {
+                totalQty += item.qty;
+                subtotal += item.price * item.qty;
+
+                const itemRow = document.createElement('div');
+                itemRow.className = "cart-element flex items-center justify-between bg-white/5 border border-white/5 p-3 rounded-2xl space-x-3";
+                itemRow.innerHTML = `
+                    <img src="${item.image}" class="w-12 h-12 object-cover rounded-xl shrink-0" alt="${item.name}">
+                    <div class="flex-1 min-w-0">
+                        <h4 class="font-bold text-xs text-white truncate uppercase tracking-wider">${item.name}</h4>
+                        <p class="text-[10px] text-brand-gold font-semibold mt-0.5">$${item.price.toFixed(2)} c/u</p>
+                    </div>
+                    <div class="flex items-center space-x-2 shrink-0">
+                        <button onclick="updateCartQuantity(${item.id}, -1)" class="w-6 h-6 rounded bg-white/5 hover:bg-brand-gold hover:text-brand-charcoal text-xs flex items-center justify-center transition-colors"><i class="fa-solid fa-minus"></i></button>
+                        <span class="text-xs font-bold text-white w-4 text-center">${item.qty}</span>
+                        <button onclick="updateCartQuantity(${item.id}, 1)" class="w-6 h-6 rounded bg-white/5 hover:bg-brand-gold hover:text-brand-charcoal text-xs flex items-center justify-center transition-colors"><i class="fa-solid fa-plus"></i></button>
+                        <button onclick="removeCartItem(${item.id})" class="text-brand-muted hover:text-red-400 text-xs pl-1.5"><i class="fa-solid fa-trash-can"></i></button>
+                    </div>
+                `;
+                cartItemsContainer.appendChild(itemRow);
+            });
+
+            // Update state & badge counters
+            cartBadge.innerText = totalQty;
+            cartBadge.classList.remove('opacity-0');
+            cartBadge.classList.add('opacity-100');
+            
+            cartItemCount.innerText = totalQty;
+            cartTotalEl.innerText = `$${subtotal.toFixed(2)}`;
+        }
+
+        // CHECKOUT TRIGGER SIMULATION
+        function triggerCheckout() {
+            toggleCart();
+            
+            // Create immersive checkout modal overlay
+            const checkoutModal = document.createElement('div');
+            checkoutModal.className = "fixed inset-0 z-[200] flex items-center justify-center p-4 bg-black/90 backdrop-blur-md";
+            checkoutModal.id = "checkout-modal";
+            checkoutModal.innerHTML = `
+                <div class="bg-brand-charcoal border border-brand-gold/30 rounded-3xl p-8 max-w-md w-full text-center space-y-6 shadow-2xl animate-fade-in relative">
+                    <div class="w-20 h-20 rounded-full bg-brand-gold/10 border border-brand-gold/30 flex items-center justify-center text-brand-gold text-4xl mx-auto animate-bounce">
+                        <i class="fa-solid fa-bag-shopping"></i>
+                    </div>
+                    <div class="space-y-2">
+                        <h3 class="font-serif text-2xl text-white font-bold">¡Pedido Listo para Enviar!</h3>
+                        <p class="text-xs text-brand-muted leading-relaxed uppercase tracking-wider">Monto total de compra: <span class="text-brand-gold font-bold">${document.getElementById('cart-total').innerText}</span></p>
+                    </div>
+                    <p class="text-sm text-brand-sand/80 leading-relaxed">
+                        Estamos preparando tu experiencia premium con embalaje biodegradable. Un asesor textil te contactará por Whatsapp/Mail de forma inmediata para coordinar la entrega express gratuita.
+                    </p>
+                    <div class="space-y-2">
+                        <button onclick="confirmOrder()" class="w-full bg-brand-gold text-brand-charcoal font-bold tracking-widest uppercase py-3.5 rounded-xl hover:bg-white transition-all">Confirmar & Cerrar</button>
+                        <p class="text-[9px] text-brand-muted uppercase tracking-widest">Envíos asegurados por DHL/Uruguay Cargo</p>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(checkoutModal);
+        }
+
+        function confirmOrder() {
+            const modal = document.getElementById('checkout-modal');
+            if (modal) {
+                modal.remove();
+            }
+            // Reset shopping cart completely
+            cart = [];
+            updateCartUI();
+        }
+
+        // HISTORICAL ERA CONTROLLER
+        function changeStoryEra(eraKey) {
+            const era = storyEras[eraKey];
+            if (!era) return;
+
+            // Transition content
+            const contentContainer = document.getElementById('story-era-content');
+            contentContainer.classList.add('opacity-0');
+
+            setTimeout(() => {
+                contentContainer.innerHTML = `
+                    <h4 class="font-serif text-xl text-white font-semibold italic">${era.title}</h4>
+                    <p class="text-brand-sand/80 text-sm leading-relaxed">${era.desc}</p>
+                `;
+                
+                // Update Image inside Left Side Container
+                document.getElementById('story-image').src = era.image;
+                document.getElementById('story-image-tag').innerText = era.tag;
+                document.getElementById('story-image-desc').innerText = era.imagedesc;
+
+                contentContainer.classList.remove('opacity-0');
+            }, 300);
+
+            // Update Tab active indicator colors
+            const buttons = document.querySelectorAll('.timeline-btn');
+            buttons.forEach(btn => {
+                btn.className = "timeline-btn text-brand-muted hover:text-white pb-2 font-bold text-xs md:text-sm tracking-widest uppercase transition-all";
+            });
+
+            document.getElementById(`btn-${eraKey}`).className = "timeline-btn text-brand-gold border-b-2 border-brand-gold pb-2 font-bold text-xs md:text-sm tracking-widest uppercase transition-all";
+        }
+
+        // INTERACTIVE CAMPAIGN VIDEO PLAYBACK
+        function toggleVideoPlayback() {
+            const video = document.getElementById('campaign-video');
+            const centerIcon = document.getElementById('play-center-icon');
+            const centerBtn = document.getElementById('video-center-btn');
+            const barIcon = document.getElementById('play-bar-icon');
+
+            if (video.paused) {
+                video.play();
+                centerIcon.className = "fa-solid fa-pause";
+                barIcon.className = "fa-solid fa-pause";
+                
+                // Dim center play button trigger on play
+                centerBtn.classList.add('opacity-20', 'scale-90');
+                centerBtn.classList.remove('opacity-100');
+            } else {
+                video.pause();
+                centerIcon.className = "fa-solid fa-play ml-1";
+                barIcon.className = "fa-solid fa-play";
+                
+                // Return play button trigger visibility on pause
+                centerBtn.classList.remove('opacity-20', 'scale-90');
+                centerBtn.classList.add('opacity-100');
+            }
+        }
+
+        function toggleVideoVolume() {
+            const video = document.getElementById('campaign-video');
+            const volIcon = document.getElementById('volume-icon');
+            
+            if(video.muted) {
+                video.muted = false;
+                volIcon.className = "fa-solid fa-volume-high";
+            } else {
+                video.muted = true;
+                volIcon.className = "fa-solid fa-volume-xmark";
+            }
+        }
+
+        // Keep Track of Video Progress Timeline
+        const campaignVideo = document.getElementById('campaign-video');
+        campaignVideo.addEventListener('timeupdate', () => {
+            const progress = document.getElementById('video-progress');
+            const timeDisplay = document.getElementById('video-time');
+            
+            const value = (campaignVideo.currentTime / campaignVideo.duration) * 100;
+            progress.style.width = `${value}%`;
+
+            // Format timestamp values
+            const curMin = Math.floor(campaignVideo.currentTime / 60);
+            const curSec = Math.floor(campaignVideo.currentTime % 60).toString().padStart(2, '0');
+            const durMin = Math.floor(campaignVideo.duration / 60) || 0;
+            const durSec = Math.floor(campaignVideo.duration % 60 || 15).toString().padStart(2, '0');
+
+            timeDisplay.innerText = `${curMin}:${curSec} / ${durMin}:${durSec}`;
+        });
+
+        function seekVideo(event) {
+            const timelineWidth = event.currentTarget.clientWidth;
+            const clickX = event.offsetX;
+            const percentage = clickX / timelineWidth;
+            campaignVideo.currentTime = percentage * campaignVideo.duration;
+        }
+
+        // PRODUCT QUICK VIEW MODAL
+        function openQuickView(id) {
+            const product = products.find(p => p.id === id);
+            if (!product) return;
+
+            // Fill details
+            document.getElementById('modal-img').src = product.image;
+            document.getElementById('modal-title').innerText = product.name;
+            document.getElementById('modal-category').innerText = product.category;
+            document.getElementById('modal-price').innerText = `$${product.price.toFixed(2)}`;
+            
+            // Set dynamic button function trigger with data arguments
+            document.getElementById('modal-add-btn').setAttribute('onclick', `addToCart(${product.id}, '${product.name}', ${product.price}, '${product.image}'); closeQuickView()`);
+
+            // Show Modal Wrapper
+            const modal = document.getElementById('quickview-modal');
+            modal.classList.remove('hidden');
+        }
+
+        function closeQuickView() {
+            document.getElementById('quickview-modal').classList.add('hidden');
+        }
+
+        function selectSize(btn) {
+            // Remove selection border styles on sisters
+            const buttons = document.querySelectorAll('.size-btn');
+            buttons.forEach(b => {
+                b.className = "size-btn border border-white/10 hover:border-white text-brand-sand font-semibold text-xs px-4 py-2.5 rounded-lg transition-colors";
+            });
+            // Highlight selected target
+            btn.className = "size-btn border border-brand-gold text-brand-gold font-semibold text-xs px-4 py-2.5 rounded-lg transition-colors";
+        }
+
+        // FORM SUBMISSION & CONNECT ACTIONS
+        function submitForm(event) {
+            event.preventDefault();
+            const name = document.getElementById('form-name').value;
+            const email = document.getElementById('form-email').value;
+
+            if(!name || !email) return;
+
+            // Display sleek success alert in the form container itself
+            const toast = document.getElementById('form-toast');
+            toast.classList.remove('hidden');
+
+            // Reset inputs
+            document.getElementById('contact-form').reset();
+
+            // Clear notice message block after a few seconds
+            setTimeout(() => {
+                toast.classList.add('hidden');
+            }, 6000);
+        }
+
+        // NEWSLETTER SUBSCRIPTION
+        function handleSubscribe(event) {
+            event.preventDefault();
+            const input = document.getElementById('news-email');
+            const successMsg = document.getElementById('news-success');
+
+            if(input.value) {
+                successMsg.classList.remove('hidden');
+                input.value = '';
+                setTimeout(() => {
+                    successMsg.classList.add('hidden');
+                }, 4000);
+            }
+        }
+    </script>
 </body>
 </html>
