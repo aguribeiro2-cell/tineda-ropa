@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Urban Style - Tienda de Ropa</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#f4f4f4;
+}
+
+header{
+    background:#111;
+    color:white;
+    text-align:center;
+    padding:25px;
+}
+
+header h1{
+    font-size:40px;
+}
+
+nav{
+    background:#222;
+    padding:15px;
+    text-align:center;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:20px;
+    font-weight:bold;
+}
+
+nav a:hover{
+    color:#FFD700;
+}
+
+.banner{
+    background:#555;
+    color:white;
+    text-align:center;
+    padding:60px;
+}
+
+.catalogo{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:25px;
+    padding:40px;
+}
+
+.producto{
+    background:white;
+    width:260px;
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 5px 10px rgba(0,0,0,0.2);
+}
+
+.producto img{
+    width:100%;
+}
+
+.producto h3{
+    padding:10px;
+}
+
+.producto p{
+    padding:0 10px;
+}
+
+.precio{
+    color:green;
+    font-size:22px;
+    font-weight:bold;
+    margin-top:10px;
+}
+
+button{
+    width:90%;
+    margin:15px;
+    padding:10px;
+    background:#111;
+    color:white;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#ff6600;
+}
+
+.perfil{
+    background:white;
+    width:80%;
+    margin:40px auto;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 0 10px rgba(0,0,0,.2);
+}
+
+footer{
+    background:#111;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+</style>
+
+</head>
+<body>
+
+<header>
+<h1>URBAN STYLE</h1>
+<p>Moda para todos los estilos</p>
+</header>
+
+<nav>
+<a href="#">Inicio</a>
+<a href="#catalogo">Catálogo</a>
+<a href="#perfil">Cuenta Profesional</a>
+<a href="#">Contacto</a>
+</nav>
+
+<section class="banner">
+<h2>¡Nueva colección 2026!</h2>
+<p>Ropa moderna con la mejor calidad.</p>
+</section>
+
+<h2 style="text-align:center; margin-top:30px;" id="catalogo">Catálogo</h2>
+
+<section class="catalogo">
+
+<div class="producto">
+<img src="https://via.placeholder.com/260x320" alt="Camiseta">
+<h3>Camiseta Oversize</h3>
+<p class="precio">$24.99</p>
+<button>Comprar</button>
+</div>
+
+<div class="producto">
+<img src="https://via.placeholder.com/260x320" alt="Jeans">
+<h3>Jeans Slim Fit</h3>
+<p class="precio">$49.99</p>
+<button>Comprar</button>
+</div>
+
+<div class="producto">
+<img src="https://via.placeholder.com/260x320" alt="Chaqueta">
+<h3>Chaqueta Premium</h3>
+<p class="precio">$69.99</p>
+<button>Comprar</button>
+</div>
+
+<div class="producto">
+<img src="https://via.placeholder.com/260x320" alt="Sudadera">
+<h3>Sudadera Casual</h3>
+<p class="precio">$39.99</p>
+<button>Comprar</button>
+</div>
+
+</section>
+
+<section class="perfil" id="perfil">
+
+<h2>Cuenta Profesional</h2>
+
+<p><strong>Nombre de la empresa:</strong> Urban Style Fashion</p>
+
+<p><strong>Propietario:</strong> Juan Pérez</p>
+
+<p><strong>Correo:</strong> ventas@urbanstyle.com</p>
+
+<p><strong>Teléfono:</strong> +1 555 123 4567</p>
+
+<p><strong>Dirección:</strong> Avenida Principal #123</p>
+
+<p><strong>Horario:</strong> Lunes a Sábado de 9:00 a 20:00</p>
+
+<p><strong>Descripción:</strong> Somos una tienda especializada en ropa moderna para hombres y mujeres, ofreciendo productos de alta calidad y las últimas tendencias de la moda.</p>
+
+</section>
+
+<footer>
+<p>© 2026 Urban Style Fashion | Todos los derechos reservados.</p>
+</footer>
+
+</body>
+</html>
